@@ -1,0 +1,23 @@
+---
+title: Catz
+images:
+  - grey_and_white_cat.jpg
+  - young_tabby_cat_keeping_watch.jpg
+  - catputer.gif
+---
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    <ul>
+      {%- for filename in images -%}
+        {%- capture path %}img/{{ filename }}{% endcapture -%}
+        <li><a href="img/{{ filename | url_encode }}">{{ filename }}</a> {{ path | filesize }}</li>
+      {%- endfor -%}
+    </ul>
+  </body>
+</html>
